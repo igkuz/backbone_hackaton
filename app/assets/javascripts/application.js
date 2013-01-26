@@ -18,4 +18,5 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/backbone_hackaton
+//= require backbone-relational
 //= require_tree .

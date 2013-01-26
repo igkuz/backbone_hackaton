@@ -15,6 +15,14 @@ BackboneHackaton::Application.routes.draw do
   end
 
   namespace :api do
-    resources :polls
+    resources :polls do
+      scope module: :polls do
+        resources :items, only: [] do
+          member do
+            post :vote
+          end
+        end
+      end
+    end
   end
 end
