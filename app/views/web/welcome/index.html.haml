@@ -1,12 +1,6 @@
-- if @polls.any?
-  %h1 Опросы
-  %table.table
-    %tr
-      %th Id
-      %th Poll
-      %th Total Votes
-    - @polls.each do |poll|
-      %tr
-        %td= poll.id
-        %td= link_to poll.name, poll
-        %td= poll.votes_count
+%div{id: :polls}
+:javascript
+  $(function() {
+    window.router = new BackboneHackaton.Routers.PollsRouter({polls: #{@polls.to_json.html_safe}});
+    Backbone.history.start();
+  });
